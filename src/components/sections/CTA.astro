@@ -4,16 +4,16 @@ import Button from '../ui/Button.astro';
 import { buildWhatsAppLink } from '../../data/contact';
 ---
 
-<section class="bg-slate-900 py-16 md:py-24">
+<section id="cta" class="bg-slate-900 py-16 md:py-24">
   <div class="mx-auto max-w-7xl px-6 lg:px-8 text-center">
     <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-white">
       Pronto para ver sua operação de vendas em tempo real?
     </h2>
     <p class="mt-4 text-base md:text-lg text-slate-300 font-medium max-w-2xl mx-auto">
-      Fale com um vendedor e entenda como funciona a implantação do Brightdash na sua operação.
+      Fale com um vendedor e entenda como funciona a implantação do Metriza na sua operação.
     </p>
     <div class="mt-8 flex justify-center">
-      <Button href={buildWhatsAppLink('Olá! Quero saber mais sobre o Brightdash.')} external size="lg">
+      <Button href={buildWhatsAppLink('Olá! Quero saber mais sobre o Metriza.')} external size="lg">
         Falar com vendas
         <ArrowRight class="w-5 h-5" aria-hidden="true" />
       </Button>

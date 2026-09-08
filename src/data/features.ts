@@ -11,7 +11,7 @@ export const features: Feature[] = [
     icon: Trophy,
     title: 'Ranking de vendedores e SDRs',
     description:
-      'Veja quem está performando em tempo real. Rankings automáticos por vendas, atividades e metas batidas — sem planilha manual.',
+      'Veja quem está performando em tempo real. Rankings automáticos por vendas, atividades e metas batidas sem planilha manual.',
   },
   {
     icon: CalendarCheck,
@@ -35,7 +35,7 @@ export const features: Feature[] = [
     icon: TrendingUp,
     title: 'Taxas de conversão por etapa',
     description:
-      'Enxergue gargalos do funil — de lead a fechamento — com taxas de conversão calculadas automaticamente entre etapas.',
+      'Enxergue gargalos do funil de lead a fechamento com taxas de conversão calculadas automaticamente entre etapas.',
   },
   {
     icon: Activity,

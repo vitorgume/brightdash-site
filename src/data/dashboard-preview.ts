@@ -2,7 +2,7 @@
  * Mock data for the illustrative dashboard preview only.
  * Fictitious names and figures — never real customer data.
  *
- * Structure mirrors the real Brightdash app screen "Vendas: Gerencial 1/2"
+ * Structure mirrors the real Metriza app screen "Vendas: Gerencial 1/2"
  * (mesmos KPIs, mesmo gráfico de rank de vendedores e mesma pizza de
  * motivos de perda), para que a prévia da landing seja fiel ao produto.
  */

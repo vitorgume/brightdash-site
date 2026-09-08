@@ -22,7 +22,7 @@ const lossSummary = `Motivos de perda dos negócios no período: ${lossReasonDat
   .join(', ')}.`;
 
 // Mesmo padrão visual dos gráficos "Rank de Vendedores" e "Motivos de Perda"
-// do painel real do Brightdash (cores, grid e tooltip idênticos).
+// do painel real do Metriza (cores, grid e tooltip idênticos).
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (

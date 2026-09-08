@@ -6,7 +6,7 @@ export interface Plan {
 }
 
 /**
- * O Brightdash é um software sob medida — não há tabela de preços pública.
+ * O Metriza é um software sob medida — não há tabela de preços pública.
  * Estes "perfis" ajudam o visitante a se identificar antes de falar com vendas,
  * mas não representam planos fechados nem valores.
  */

@@ -13,5 +13,5 @@
     <circle cx="80" cy="20" r="8" fill="url(#bdLockupGradDark)"/>
   </svg>
 
-  <text x="58" y="32" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="24" font-weight="600" fill="#ffffff">bright<tspan fill="#2dd4bf">dash</tspan></text>
+  <text x="58" y="32" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="24" font-weight="600" fill="#ffffff">Met<tspan fill="#2dd4bf">riza</tspan></text>
 </svg>

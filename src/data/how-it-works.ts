@@ -13,7 +13,7 @@ export const steps: Step[] = [
     number: '01',
     title: 'Implantação e integração com o CRM',
     description:
-      'Nosso time cuida da implantação e conecta o Brightdash ao seu CRM (Pipedrive, Ollow, Pipefy ou PipeRun). Por ser uma integração personalizada, esse processo leva algumas semanas.',
+      'Nosso time cuida da implantação e conecta o Metriza ao seu CRM (Pipedrive, Ollow, Pipefy ou PipeRun). Por ser uma integração personalizada, esse processo leva alguns dias.',
   },
   {
     icon: SlidersHorizontal,
