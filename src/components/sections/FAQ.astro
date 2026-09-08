@@ -1,0 +1,32 @@
+---
+import { ChevronDown } from 'lucide-astro';
+import { faqItems } from '../../data/faq';
+---
+
+<section id="faq" class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-3xl px-6 lg:px-8">
+    <div class="text-center">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">FAQ</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+        Perguntas frequentes
+      </h2>
+    </div>
+
+    <div class="mt-12 flex flex-col gap-4">
+      {
+        faqItems.map((item) => (
+          <details class="group bg-slate-50 rounded-xl border border-slate-200 p-6 [&_summary::-webkit-details-marker]:hidden">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-semibold text-slate-900">
+              {item.question}
+              <ChevronDown
+                class="w-5 h-5 text-slate-500 shrink-0 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              />
+            </summary>
+            <p class="mt-4 text-slate-500 font-medium text-sm">{item.answer}</p>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>

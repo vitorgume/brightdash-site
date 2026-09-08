@@ -1,0 +1,66 @@
+---
+import { Check, MessageCircle } from 'lucide-astro';
+import { plans } from '../../data/plans';
+import { buildWhatsAppLink } from '../../data/contact';
+
+const whatsappLink = buildWhatsAppLink('Olá! Quero saber mais sobre o Brightdash.');
+---
+
+<section id="contato" class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl mx-auto text-center">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">Comercial</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+        Feito sob medida para a sua operação comercial
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-slate-500 font-medium">
+        O Brightdash é implantado e configurado para o CRM e o processo de vendas de cada
+        cliente — por isso não temos uma tabela de preços fechada. Fale com um vendedor para
+        entender como ele se encaixa na sua operação.
+      </p>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      {
+        plans.map((plan) => (
+          <div
+            class:list={[
+              'flex flex-col bg-white rounded-xl border shadow-sm p-6',
+              plan.highlighted ? 'border-teal-600 ring-1 ring-teal-600' : 'border-slate-200',
+            ]}
+          >
+            {plan.highlighted && (
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-teal-600 text-white px-3 py-1 text-xs font-semibold w-fit">
+                Perfil mais comum
+              </span>
+            )}
+            <h3 class="mt-3 text-slate-900 font-semibold text-lg">{plan.name}</h3>
+            <p class="mt-1 text-slate-500 font-medium text-sm">{plan.description}</p>
+
+            <ul class="mt-6 flex flex-col gap-3 flex-1">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm text-slate-700">
+                  <Check class="w-4 h-4 text-teal-600 mt-0.5 shrink-0" aria-hidden="true" />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 flex flex-col items-center gap-3 text-center">
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 text-base rounded-lg font-medium transition-colors shadow-sm"
+      >
+        <MessageCircle class="w-5 h-5" aria-hidden="true" />
+        Falar com vendas
+      </a>
+      <p class="text-sm text-slate-500">Sem tabela de preços fixa — proposta feita sob medida para o seu cenário.</p>
+    </div>
+  </div>
+</section>

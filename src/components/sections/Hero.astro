@@ -1,0 +1,36 @@
+---
+import { ArrowRight, PlayCircle } from 'lucide-astro';
+import Button from '../ui/Button.astro';
+import { buildWhatsAppLink } from '../../data/contact';
+---
+
+<section class="relative overflow-hidden bg-slate-50">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16 md:py-24">
+    <div class="max-w-3xl">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">
+        Painel de performance comercial
+      </span>
+      <h1 class="mt-4 text-4xl md:text-6xl font-semibold tracking-tight text-slate-900">
+        Todos os números da sua operação de vendas, em um único painel
+      </h1>
+      <p class="mt-6 text-base md:text-lg text-slate-500 font-medium max-w-2xl">
+        O Brightdash conecta ao seu CRM e transforma ranking de vendedores, reuniões
+        agendadas, metas, comissões e conversão em um painel em tempo real — para
+        líderes comerciais que decidem com dados, não com achismo.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+        <Button href={buildWhatsAppLink('Olá! Quero saber mais sobre o Brightdash.')} external size="lg">
+          Falar com vendas
+          <ArrowRight class="w-5 h-5" aria-hidden="true" />
+        </Button>
+        <Button href="#como-funciona" variant="secondary" size="lg">
+          <PlayCircle class="w-5 h-5" aria-hidden="true" />
+          Ver como funciona
+        </Button>
+      </div>
+      <p class="mt-4 text-sm text-slate-500">
+        Implantação personalizada · integração com o seu CRM · atendimento consultivo
+      </p>
+    </div>
+  </div>
+</section>

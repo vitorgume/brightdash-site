@@ -1,0 +1,67 @@
+---
+import { Menu } from 'lucide-astro';
+import { navLinks } from '../../data/nav';
+import Button from '../ui/Button.astro';
+import { buildWhatsAppLink } from '../../data/contact';
+---
+
+<header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center" aria-label="Brightdash, ir para a página inicial">
+        <img src="/logos/brightdash-lockup.svg" alt="Brightdash" class="h-14 w-auto" width="220" height="48" />
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8" aria-label="Navegação principal">
+        {
+          navLinks.map((link) => (
+            <a
+              href={link.href}
+              class="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="hidden md:block">
+        <Button href={buildWhatsAppLink('Olá! Quero saber mais sobre o Brightdash.')} external size="md">
+          Falar com vendas
+        </Button>
+      </div>
+
+      <details class="md:hidden relative">
+        <summary
+          class="list-none cursor-pointer inline-flex items-center justify-center w-10 h-10 rounded-lg border border-slate-300 text-slate-700 [&::-webkit-details-marker]:hidden"
+          aria-label="Abrir menu"
+        >
+          <Menu class="w-5 h-5" aria-hidden="true" />
+        </summary>
+        <nav
+          class="absolute right-0 top-12 w-64 bg-white rounded-xl border border-slate-200 shadow-lg p-4 flex flex-col gap-1"
+          aria-label="Navegação móvel"
+        >
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="px-3 py-2 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+          <a
+            href={buildWhatsAppLink('Olá! Quero saber mais sobre o Brightdash.')}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-2 inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium transition-colors shadow-sm"
+          >
+            Falar com vendas
+          </a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>

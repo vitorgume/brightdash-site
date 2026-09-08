@@ -1,0 +1,56 @@
+---
+import { navLinks } from '../../data/nav';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-slate-900 text-slate-300">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <img
+          src="/logos/brightdash-lockup-dark.svg"
+          alt="Brightdash"
+          class="h-14 w-auto"
+          width="220"
+          height="48"
+        />
+        <p class="mt-4 text-sm text-slate-400 max-w-sm">
+          O painel de performance comercial que conecta ao seu CRM e mostra, em tempo
+          real, ranking, metas, comissões e conversão da sua equipe de vendas.
+        </p>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold text-sm">Navegação</h3>
+        <ul class="mt-4 flex flex-col gap-3">
+          {
+            navLinks.map((link) => (
+              <li>
+                <a href={link.href} class="text-sm text-slate-400 hover:text-teal-400 transition-colors">
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-white font-semibold text-sm">Contato</h3>
+        <ul class="mt-4 flex flex-col gap-3 text-sm text-slate-400">
+          <li>
+            <a href="mailto:contato@brightdash.com.br" class="hover:text-teal-400 transition-colors">
+              contato@brightdash.com.br
+            </a>
+          </li>
+          <li>São Paulo, Brasil</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-800">
+      <p class="text-sm text-slate-500">&copy; {year} Brightdash. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,115 @@
+---
+import { CalendarDays, CheckCircle, DollarSign, XCircle, TrendingUp, LayoutDashboard, Calendar } from 'lucide-astro';
+import { RankVendedoresChart, MotivosPerdaChart } from './DashboardChart.tsx';
+import { dashboardKpis, type KpiColor } from '../../data/dashboard-preview';
+
+const iconMap = {
+  calendar: CalendarDays,
+  check: CheckCircle,
+  dollar: DollarSign,
+  x: XCircle,
+} as const;
+
+const colorClasses: Record<KpiColor, { chip: string; value: string }> = {
+  teal: { chip: 'bg-teal-50 text-teal-600', value: 'text-slate-900' },
+  emerald: { chip: 'bg-emerald-50 text-emerald-600', value: 'text-emerald-600' },
+  rose: { chip: 'bg-rose-50 text-rose-600', value: 'text-rose-600' },
+};
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">Painel em ação</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+        Não é uma ilustração genérica — é a tela real do Brightdash
+      </h2>
+      <p class="mt-4 text-base md:text-lg text-slate-500 font-medium">
+        Recorte fiel do painel "Vendas: Gerencial", com dados fictícios, no mesmo layout e
+        componentes que a sua equipe vai usar todos os dias.
+      </p>
+    </div>
+
+    <div class="mt-12 rounded-xl border border-slate-200 bg-slate-50 overflow-hidden">
+      <!-- Réplica da barra "Central de Dashboards" do produto real -->
+      <div class="bg-white border-b border-slate-200 px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <LayoutDashboard class="w-5 h-5 text-teal-600" aria-hidden="true" />
+          <span class="font-semibold text-slate-900 text-sm">Central de Dashboards</span>
+        </div>
+        <nav class="flex items-center gap-1 bg-slate-100 p-1 rounded-xl overflow-x-auto" aria-label="Painéis disponíveis (prévia)">
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 whitespace-nowrap">Pré-Vendas: Gerencial</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium bg-white text-teal-700 shadow-sm whitespace-nowrap">Vendas: Gerencial</span>
+          <span class="px-3 py-1.5 rounded-lg text-xs font-medium text-slate-500 whitespace-nowrap">Conversão de Funil</span>
+        </nav>
+      </div>
+
+      <!-- Réplica da barra de filtros (Período / Funil) -->
+      <div class="bg-white border-b border-slate-200 px-6 py-3 flex flex-wrap items-center gap-3">
+        <div class="flex items-center gap-2 text-slate-400">
+          <Calendar class="w-4 h-4" aria-hidden="true" />
+          <span class="text-xs font-medium text-slate-600">Período:</span>
+        </div>
+        <span class="px-3 py-1.5 border border-slate-300 rounded-lg text-xs bg-slate-50 text-slate-600">Mês Atual</span>
+        <span class="px-3 py-1.5 border border-slate-300 rounded-lg text-xs bg-white text-slate-600 shadow-sm font-medium">Funil de Vendas</span>
+        <span class="px-3 py-1.5 border border-slate-300 rounded-lg text-xs bg-white text-slate-600 shadow-sm font-medium">Todos os Vendedores</span>
+      </div>
+
+      <div class="p-6 md:p-8">
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4 md:gap-6">
+          {
+            dashboardKpis.map((kpi) => {
+              const Icon = iconMap[kpi.icon];
+              const colors = colorClasses[kpi.color];
+              return (
+                <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex flex-col gap-2">
+                  <div class="flex items-center justify-between">
+                    <h3 class="text-sm font-medium text-slate-500">{kpi.title}</h3>
+                    <div class={`p-2 rounded-lg ${colors.chip}`}>
+                      <Icon class="w-5 h-5" aria-hidden="true" />
+                    </div>
+                  </div>
+                  <p class={`text-2xl font-semibold ${colors.value}`}>{kpi.value}</p>
+                  <div class="flex items-center gap-2 mt-1">
+                    <span
+                      class:list={[
+                        'inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium',
+                        kpi.isPositive ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700',
+                      ]}
+                    >
+                      <TrendingUp class:list={['w-3.5 h-3.5', !kpi.isPositive && 'rotate-180']} aria-hidden="true" />
+                      {kpi.change}%
+                    </span>
+                    <span class="text-xs text-slate-400">vs. período anterior</span>
+                  </div>
+                </div>
+              );
+            })
+          }
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 md:p-8 flex flex-col gap-4">
+            <div>
+              <h3 class="text-slate-900 font-semibold">Rank de Vendedores</h3>
+              <p class="text-slate-500 font-medium text-sm">Volume de negócios ganhos no período</p>
+            </div>
+            <RankVendedoresChart client:visible />
+          </div>
+
+          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 md:p-8 flex flex-col gap-4">
+            <div>
+              <h3 class="text-slate-900 font-semibold">Motivos de Perda</h3>
+              <p class="text-slate-500 font-medium text-sm">Distribuição dos negócios perdidos no período</p>
+            </div>
+            <MotivosPerdaChart client:visible />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm text-slate-500">
+      Prévia com dados fictícios, fiel ao layout do produto real — nenhum dado de cliente é exibido aqui.
+    </p>
+  </div>
+</section>

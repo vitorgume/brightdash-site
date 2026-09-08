@@ -1,0 +1,27 @@
+---
+interface Props {
+  label: string;
+  value: string;
+  deltaLabel?: string;
+  positive?: boolean;
+}
+
+const { label, value, deltaLabel, positive = true } = Astro.props;
+---
+
+<div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex flex-col gap-2">
+  <span class="text-sm text-slate-500 font-medium">{label}</span>
+  <span class="text-2xl text-slate-900 font-semibold">{value}</span>
+  {
+    deltaLabel && (
+      <span
+        class:list={[
+          'inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium w-fit',
+          positive ? 'bg-emerald-50 text-emerald-700' : 'bg-rose-50 text-rose-700',
+        ]}
+      >
+        {deltaLabel}
+      </span>
+    )
+  }
+</div>

@@ -1,0 +1,29 @@
+---
+import { steps } from '../../data/how-it-works';
+---
+
+<section id="como-funciona" class="bg-white py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">Como funciona</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+        Do CRM ao painel em três passos
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        steps.map((step) => (
+          <div class="relative bg-slate-50 rounded-xl border border-slate-200 p-6">
+            <span class="text-sm font-semibold text-teal-600">{step.number}</span>
+            <div class="mt-4 inline-flex items-center justify-center w-11 h-11 rounded-lg bg-white border border-slate-200 shadow-sm text-teal-600">
+              <step.icon class="w-6 h-6" aria-hidden="true" />
+            </div>
+            <h3 class="mt-4 text-slate-900 font-semibold">{step.title}</h3>
+            <p class="mt-2 text-slate-500 font-medium text-sm">{step.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

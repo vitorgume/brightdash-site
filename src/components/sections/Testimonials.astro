@@ -1,0 +1,39 @@
+---
+import { Quote } from 'lucide-astro';
+import { testimonials } from '../../data/testimonials';
+---
+
+<section id="depoimentos" class="bg-slate-50 py-16 md:py-24">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <span class="text-sm font-semibold uppercase tracking-wide text-teal-600">Depoimentos</span>
+      <h2 class="mt-4 text-3xl md:text-4xl font-semibold tracking-tight text-slate-900">
+        Líderes comerciais que já decidem com o Brightdash
+      </h2>
+    </div>
+
+    <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {
+        testimonials.map((testimonial) => (
+          <figure class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex flex-col gap-4">
+            <Quote class="w-6 h-6 text-teal-600" aria-hidden="true" />
+            <blockquote class="text-slate-700 text-sm font-medium flex-1">
+              “{testimonial.quote}”
+            </blockquote>
+            <figcaption class="flex items-center gap-3">
+              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-teal-50 text-teal-700 text-sm font-semibold shrink-0">
+                {testimonial.initials}
+              </span>
+              <div>
+                <p class="text-slate-900 font-semibold text-sm">{testimonial.name}</p>
+                <p class="text-slate-500 text-xs font-medium">
+                  {testimonial.role} · {testimonial.company}
+                </p>
+              </div>
+            </figcaption>
+          </figure>
+        ))
+      }
+    </div>
+  </div>
+</section>

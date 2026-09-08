@@ -1,0 +1,25 @@
+---
+import { integrations } from '../../data/integrations';
+---
+
+<section class="bg-white border-y border-slate-200">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 py-10">
+    <p class="text-center text-sm font-medium text-slate-500">
+      Funciona com o CRM que sua equipe já usa
+    </p>
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+      {
+        integrations.map((integration) => (
+          <img
+            src={integration.logo}
+            alt={integration.name}
+            width="140"
+            height="40"
+            class="h-8 w-auto opacity-70 grayscale"
+            loading="lazy"
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

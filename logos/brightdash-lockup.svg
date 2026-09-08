@@ -1,0 +1,17 @@
+<svg width="230" height="48" viewBox="0 0 230 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="bdLockupTitle">
+  <title id="bdLockupTitle">Brightdash</title>
+  <defs>
+    <linearGradient id="bdLockupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2dd4bf" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+  </defs>
+
+  <svg x="0" y="0" width="48" height="48" viewBox="0 0 100 100">
+    <rect x="15" y="30" width="70" height="45" rx="8" fill="none" stroke="#0f172a" stroke-width="6" />
+    <path d="M 25 60 L 40 45 L 55 55 L 75 30" fill="none" stroke="url(#bdLockupGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="80" cy="20" r="8" fill="url(#bdLockupGrad)"/>
+  </svg>
+
+  <text x="58" y="32" font-family="Inter, -apple-system, Segoe UI, sans-serif" font-size="24" font-weight="600" fill="#0f172a">bright<tspan fill="#0d9488">dash</tspan></text>
+</svg>
