@@ -14,21 +14,45 @@ import { integrations } from '../../data/integrations';
       </p>
     </div>
 
-    <div class="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-      {
-        integrations.map((integration) => (
-          <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex items-center justify-center">
-            <img
-              src={integration.logo}
-              alt={integration.name}
-              width="140"
-              height="40"
-              class="h-8 w-auto"
-              loading="lazy"
-            />
-          </div>
-        ))
-      }
+    <!-- Container do Carrossel -->
+    <div class="mt-12 relative flex overflow-hidden mask-edges group">
+      
+      <!-- Primeira Lista -->
+      <div class="flex w-max animate-infinite-scroll group-hover:[animation-play-state:paused]">
+        {
+          integrations.map((integration) => (
+            <div class="mx-2 w-40 md:w-48 flex-shrink-0 bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex items-center justify-center">
+              <img
+                src={integration.logo}
+                alt={integration.name}
+                width="140"
+                height="40"
+                class="h-8 w-auto"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+      
+      <!-- Segunda Lista (Cópia exata para o loop infinito) -->
+      <div class="flex w-max animate-infinite-scroll group-hover:[animation-play-state:paused]" aria-hidden="true">
+        {
+          integrations.map((integration) => (
+            <div class="mx-2 w-40 md:w-48 flex-shrink-0 bg-white rounded-xl border border-slate-200 shadow-sm p-6 flex items-center justify-center">
+              <img
+                src={integration.logo}
+                alt={integration.name}
+                width="140"
+                height="40"
+                class="h-8 w-auto"
+                loading="lazy"
+              />
+            </div>
+          ))
+        }
+      </div>
+
     </div>
 
     <p class="mt-6 text-sm text-slate-500">
@@ -36,3 +60,25 @@ import { integrations } from '../../data/integrations';
     </p>
   </div>
 </section>
+
+<style>
+  /* Define a animação de rolagem contínua */
+  .animate-infinite-scroll {
+    animation: scroll 25s linear infinite;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* (Opcional) Adiciona um efeito de degradê (fade) nas bordas do carrossel */
+  .mask-edges {
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  }
+</style>
